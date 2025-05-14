@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "6f8bcd4f-af41-4475-ba1d-91d97335f303",
+		"name": "Library Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15167218"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/test/hello",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBooks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/library/books",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"library",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addBook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bookTitle\": \"TestBook\",\n    \"isbn\": \"059600712\",\n    \"publishedYear\": 2025,\n    \"authorName\": \"Trilok\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/library/addBook",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"library",
+						"addBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteBook",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/library/deleteBook?bookName=TestBook",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"library",
+						"deleteBook"
+					],
+					"query": [
+						{
+							"key": "bookName",
+							"value": "TestBook"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrowBook",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/library/borrowBook?bookname=Clean Code: A Handbook of Agile Software Craftsmanship",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"library",
+						"borrowBook"
+					],
+					"query": [
+						{
+							"key": "bookname",
+							"value": "Clean Code: A Handbook of Agile Software Craftsmanship"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "returnBook",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/library/returnBook?bookname=Clean Code: A Handbook of Agile Software Craftsmanship",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"library",
+						"returnBook"
+					],
+					"query": [
+						{
+							"key": "bookname",
+							"value": "Clean Code: A Handbook of Agile Software Craftsmanship"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateBook",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bookId\": 1,\n    \"isbn\": \"978-0596009205\",\n    \"bookTitle\": \"Head First Java Vol 1\",\n    \"publishedYear\": 2024,\n    \"authorName\": \"Trilok\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/library/updateBook",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"library",
+						"updateBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "partialMatchSearch",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"bookId\": 1,\n        \"isbn\": \"978-0596009205\",\n        \"bookTitle\": null,\n        \"publishedYear\": 2024,\n        \"authorName\": \"Trilok\"\n    }"
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/library/partialMatchSearch?author=thomas",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"library",
+						"partialMatchSearch"
+					],
+					"query": [
+						{
+							"key": "bookTitle",
+							"value": "elements",
+							"disabled": true
+						},
+						{
+							"key": "author",
+							"value": "thomas"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPaginatedBooks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/library/getPaginatedBooks",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"library",
+						"getPaginatedBooks"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "trilok",
+							"disabled": true
+						},
+						{
+							"key": "publishedYear",
+							"value": "2025",
+							"disabled": true
+						},
+						{
+							"key": "availabilityStatus",
+							"value": "AVAILABLE",
+							"description": "Only enter AVAILABLE / BORROWED.",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
